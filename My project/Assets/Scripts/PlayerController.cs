@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
      * Sprint
      * huck those meats at an angle?
      * Convert to Kinematic movement to prevent weird ground humping
-     * 
+     * add random spinning force to meat
      * 
      */
     private void Start()
