@@ -40,7 +40,15 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
-
+    /*TODO
+     * Slide
+     * Crouch
+     * Sprint
+     * huck those meats at an angle?
+     * Convert to Kinematic movement to prevent weird ground humping
+     * 
+     * 
+     */
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -89,11 +97,17 @@ public class PlayerController : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
         
+        // spawning and control of projectiles
         if (Input.GetKeyDown(shootKey))
         {
+            Random.Range(0, 360);
             //spawn bullet
             Quaternion q = Quaternion.Euler(0, 0, 0);
             GameObject shotBullet = GameObject.Instantiate(bullet, bulletPoint.position, q);
+
+            //give it a random rotation
+            Quaternion rando = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+            shotBullet.transform.rotation = rando;
             //apply force to bullet
             shotBullet.GetComponent<Rigidbody>().AddForce(orientation.forward*bulletForce,ForceMode.Impulse);
         }
