@@ -20,13 +20,19 @@ public class PlayerController : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode shootKey = KeyCode.Mouse0;
 
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
     public Transform orientation;
+
+    [Header("Gun Mechanic")]
+    public Transform bulletPoint;
+    public GameObject bullet;
+    public float bulletForce;
 
     float horizontalInput;
     float verticalInput;
@@ -47,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-
+       
         MyInput();
         SpeedControl();
 
@@ -56,6 +62,11 @@ public class PlayerController : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, Vector3.down);
     }
 
     private void FixedUpdate()
@@ -77,8 +88,17 @@ public class PlayerController : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        
+        if (Input.GetKeyDown(shootKey))
+        {
+            //spawn bullet
+            Quaternion q = Quaternion.Euler(0, 0, 0);
+            GameObject shotBullet = GameObject.Instantiate(bullet, bulletPoint.position, q);
+            //apply force to bullet
+            shotBullet.GetComponent<Rigidbody>().AddForce(orientation.forward*bulletForce,ForceMode.Impulse);
+        }
     }
-
+    
     private void MovePlayer()
     {
         // calculate movement direction
