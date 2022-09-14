@@ -13,22 +13,14 @@ public class SubFracture : MonoBehaviour
     public float maxPower;
     public float minPower;
 
-    private void Start()
-    {
-
-        print(1);
-    }
+   
 
     private void Awake()
     {
 
         selfLaunch();
     }
-    private void OnEnable()
-    {
-        print(3);
-      
-    }
+   
 
     public void lauchPieces()
     {
@@ -41,7 +33,7 @@ public class SubFracture : MonoBehaviour
 
         foreach (Transform g in allChildren){
             LaunchAngle = g.transform.position - transform.position;
-            print("PWOOOSH");
+           
             power = Random.Range(minPower, maxPower);
 
             LaunchAngle = power * LaunchAngle;
@@ -54,7 +46,7 @@ public class SubFracture : MonoBehaviour
         
         Vector3 LaunchAngle = transform.position - transform.parent.transform.position;
 
-        print("PWOOOSH");
+        
 
         LaunchAngle = LaunchAngle.normalized;
 

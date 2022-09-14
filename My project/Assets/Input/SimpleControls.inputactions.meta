@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a0e5791b60f56a4596ee8ad403c765f
+guid: 97210cd740af04df697b1fa71c9c9623
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -8,7 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 8404be70184654265930450def6a9037, type: 3}
-  generateWrapperCode: 0
+  generateWrapperCode: 1
   wrapperCodePath: 
-  wrapperClassName: 
+  wrapperClassName: SimpleControls
   wrapperCodeNamespace: 
