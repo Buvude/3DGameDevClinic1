@@ -4,71 +4,59 @@ using UnityEngine;
 
 public class SubFracture : MonoBehaviour
 {
-    public bool grounded;
-    public bool connected;
+   
 
-    public List<SubFracture> connections;
+    public Transform[] allChildren;
 
-    private Fracture parent;
+    [Header("Launch parameters")]
+    public float launchpower;
+    public float maxPower;
+    public float minPower;
 
-    private void Start()
+   
+
+    private void Awake()
     {
-        parent = transform.root.GetComponent<Fracture>();
-        GetComponent<Rigidbody>().isKinematic = true;
+
+        selfLaunch();
+    }
+   
+
+    public void lauchPieces()
+    {
+        print(4);
+        //get launch angle
+        Vector3 LaunchAngle;
+
+        float power;
+        //calculate launch power
+
+        foreach (Transform g in allChildren){
+            LaunchAngle = g.transform.position - transform.position;
+           
+            power = Random.Range(minPower, maxPower);
+
+            LaunchAngle = power * LaunchAngle;
+            g.GetComponent<Rigidbody>().AddForce(LaunchAngle, ForceMode.Impulse);
+        }
+    } 
+
+    public void selfLaunch()
+    {
+        
+        Vector3 LaunchAngle = transform.position - transform.parent.transform.position;
+
+        
+
+        LaunchAngle = LaunchAngle.normalized;
+
+        float power = Random.Range(0, 2.5f);
+
+        LaunchAngle = power * LaunchAngle;
+        transform.GetComponent<Rigidbody>().AddForce(LaunchAngle, ForceMode.VelocityChange);
+        
+
     }
 
-    void Update()
-    {
-        for (int i = 0; i < connections.Count; i++) // Make sure it is not isolated
-        {
-            if (!connections[i].grounded && !connections[i].connected)
-            {
-                connections.Remove(connections[i]);
-            }
-        }
 
-        bool somehowGrounded = false;
-
-        for (int i = 0; i < connections.Count; i++) // Make sure it is connect to a ground some way or another
-        {
-            if (connections[i].grounded)
-            {
-                somehowGrounded = true;
-                break;
-            }
-
-            for (int i2 = 0; i2 < connections[i].connections.Count; i2++) // Check one more iteration through
-            {
-                if (connections[i].connections[i2].grounded)
-                {
-                    somehowGrounded = true;
-                    break;
-                }
-            }
-        }
-
-        connected = somehowGrounded && connections.Count >= 1 || grounded;
-
-        GetComponent<Rigidbody>().isKinematic = connected;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.impulse.magnitude > parent.breakForce)
-        {
-            // Make sure the hit cell disconnects
-            connections = new List<SubFracture>();
-            grounded = false;
-
-            parent.FractureObject(collision.contacts[0].point, collision.impulse);
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        for (int i = 0; i < connections.Count; i++)
-        {
-            Gizmos.DrawLine(transform.position, connections[i].transform.position);
-        }
-    }
 }
