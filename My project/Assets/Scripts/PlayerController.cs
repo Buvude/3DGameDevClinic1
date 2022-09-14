@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     //GroundMovement
+    public float ScaleOfCharacter;
     public float maxMoveSpeed;
     public float anglePower = .5f;
     public float maxWalkingAngle;
@@ -215,12 +216,14 @@ public class PlayerController : MonoBehaviour
     {
         // Get Parameters associated with the KCC
         Vector3 center = rot * capsuleCollider.center + pos;
-        float radius = capsuleCollider.radius;
-        float height = capsuleCollider.height;
+        float radius = capsuleCollider.radius*ScaleOfCharacter;
+        float height = capsuleCollider.height*ScaleOfCharacter;
 
         // Get top and bottom points of collider
-        Vector3 bottom = center + rot * Vector3.down * (height / 2 - radius);
-        Vector3 top = center + rot * Vector3.up * (height / 2 - radius);
+        Vector3 bottom = center + rot * Vector3.down * ((height) / 2 - radius);
+        Vector3 top = center + rot * Vector3.up * ((height) / 2 - radius);
+       // bottom = bottom*ScaleOfCharacter;
+        //top = top * ScaleOfCharacter;
 
         // Check what objects this collider will hit when cast with this configuration excluding itself
         IEnumerable<RaycastHit> hits = Physics.CapsuleCastAll(
