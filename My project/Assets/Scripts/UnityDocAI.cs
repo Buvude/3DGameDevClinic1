@@ -4,17 +4,17 @@ using UnityEngine.AI;
 
 public class UnityDocAI : MonoBehaviour
 {
-
-    public Transform goal;
-    /*private NavMeshAgent agent;*/
-    void start()
+    
+    public GameObject goal;
+    private NavMeshAgent agent;
+    void Start()
     {
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        agent.destination = goal.position;
+        agent = GetComponent<NavMeshAgent>();
+        agent.destination = goal.transform.position;
     }
 
-    /*public void Update()
+    private void Update()
     {
-        agent.destination = goal.position;
-    }*/
+        agent.destination = goal.transform.position;
+    }
 }
