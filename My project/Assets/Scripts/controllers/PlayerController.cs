@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public Transform bulletPoint;
     public GameObject bullet;
     public float bulletForce;
+    private bool gunReady;
 
     //Kinematic variables
     internal Vector3 velocity;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private const float minPitch = -90;
     private const float maxPitch = 90;
 
+
     
    
     private void Start()
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
 
         Cursor.lockState = CursorLockMode.Locked;
-
+        gunReady = true;
     }
 
     public void Update()
@@ -210,7 +212,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
     // Checks in a direction of self to see if collision is iminent
     public bool CastSelf(Vector3 pos, Quaternion rot, Vector3 dir, float dist, out RaycastHit hit)
     {
@@ -241,5 +242,29 @@ public class PlayerController : MonoBehaviour
         // Return if any objects were hit
         return didHit;
     }
+
+    //called when the left moust button is pressed
+    public void GetShootButton()
+    {
+
+        if (gunReady)
+        {//spawn steak, launch steak
+            GameObject steak = GameObject.Instantiate(bullet, bulletPoint.position, Quaternion.identity);
+            //apply a foce to the newly created bullet after it is born
+            //steak.GetComponent<Rigidbody>().AddForce(bulletPoint.forward * bulletForce, ForceMode.VelocityChange);
+
+            //steak.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), 0, Random.Range(0, 360)));
+            gunReady = false;
+            Invoke("gunCooldown", .25f);
+        }
+
+       
+    }
+
+    public void gunCooldown()
+    {
+        gunReady = true;
+    }
+
     
 }
