@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour
             // If we are overlapping with something, just exit.
             if (hit.distance == 0)
             {
+                print("help im stuck on something");
                 break;
             }
 
@@ -223,7 +224,7 @@ public class PlayerController : MonoBehaviour
         // Get top and bottom points of collider
         Vector3 bottom = center + rot * Vector3.down * ((height) / 2 - radius);
         Vector3 top = center + rot * Vector3.up * ((height) / 2 - radius);
-       // bottom = bottom*ScaleOfCharacter;
+        // bottom = bottom*ScaleOfCharacter;
         //top = top * ScaleOfCharacter;
 
         // Check what objects this collider will hit when cast with this configuration excluding itself
@@ -248,12 +249,14 @@ public class PlayerController : MonoBehaviour
     {
 
         if (gunReady)
-        {//spawn steak, launch steak
+        {
+            //spawn steak, launch steak
             GameObject steak = GameObject.Instantiate(bullet, bulletPoint.position, Quaternion.identity);
-            //apply a foce to the newly created bullet after it is born
-            //steak.GetComponent<Rigidbody>().AddForce(bulletPoint.forward * bulletForce, ForceMode.VelocityChange);
 
-            //steak.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), 0, Random.Range(0, 360)));
+            //apply a foce to the newly created bullet after it is born
+            steak.GetComponent<Rigidbody>().AddForce(bulletPoint.forward * bulletForce, ForceMode.VelocityChange);
+
+            steak.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), 0, Random.Range(0, 360)));
             gunReady = false;
             Invoke("gunCooldown", .25f);
         }
