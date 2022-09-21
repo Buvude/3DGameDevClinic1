@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4050711503828797764
+--- !u!1 &123312120227250823
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3710073333199246334}
-  - component: {fileID: 347638773656493147}
-  - component: {fileID: 2537770515333015697}
-  - component: {fileID: 3252844050137902309}
-  - component: {fileID: 3816358094176180216}
-  - component: {fileID: 3816358094176180223}
-  - component: {fileID: 5417536623583270321}
+  - component: {fileID: 8743395656771433332}
+  - component: {fileID: 6541338188558960814}
+  - component: {fileID: 7862115609410777242}
   m_Layer: 0
-  m_Name: Raptor_Bellhop_V2
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3710073333199246334
+--- !u!4 &8743395656771433332
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050711503828797764}
-  m_LocalRotation: {x: -0.56098634, y: -0.56098455, z: -0.43045887, w: 0.43046004}
-  m_LocalPosition: {x: 0.95356125, y: 0.106026426, z: 0.28879553}
+  m_GameObject: {fileID: 123312120227250823}
+  m_LocalRotation: {x: -0.56098557, y: -0.56098557, z: -0.43045938, w: 0.43045938}
+  m_LocalPosition: {x: -0.126, y: 0.203, z: 0.04}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 3710073333199246334}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -105, y: 0, z: -90}
---- !u!33 &347638773656493147
+--- !u!33 &6541338188558960814
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050711503828797764}
+  m_GameObject: {fileID: 123312120227250823}
   m_Mesh: {fileID: -2729625439352259849, guid: c8f41fe295699b44999d31ea39785f0e, type: 3}
---- !u!23 &2537770515333015697
+--- !u!23 &7862115609410777242
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4050711503828797764}
+  m_GameObject: {fileID: 123312120227250823}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -87,6 +83,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4050711503828797764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3710073333199246334}
+  - component: {fileID: 3252844050137902309}
+  - component: {fileID: 3816358094176180216}
+  - component: {fileID: 3816358094176180223}
+  - component: {fileID: 5417536623583270321}
+  m_Layer: 0
+  m_Name: Raptor_Bellhop_V2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3710073333199246334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4050711503828797764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.026, y: -0.024, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8743395656771433332}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3252844050137902309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookRadius: 3
-  target: {fileID: 984018373561745455, guid: 1868ced56f242cc41a70c433970c4693, type: 3}
 --- !u!195 &3816358094176180216
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -110,7 +141,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4050711503828797764}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.006471149
+  m_Radius: 0.48
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -119,8 +150,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.0023892801
-  m_BaseOffset: 0.0011946401
+  m_Height: 0.45
+  m_BaseOffset: -0.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3816358094176180223
@@ -150,5 +181,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
