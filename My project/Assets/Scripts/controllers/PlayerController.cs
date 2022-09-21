@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
     private const float minPitch = -90;
     private const float maxPitch = 90;
 
+    public GameObject projectilePrefab;
+    private float lastCallTime = 0;
+    public Transform bulletSpawner;
+
 
     
    
@@ -74,6 +78,12 @@ public class PlayerController : MonoBehaviour
         {
             playerMove = Vector2.zero;
             cameraAngle = Vector2.zero;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastCallTime > 0.5)
+        {
+            Instantiate (projectilePrefab, bulletSpawner.position, projectilePrefab.transform.rotation);
+            lastCallTime = Time.time;
         }
 
         // Camera move on x (horizontal movement) controls the yaw (look left or look right)
