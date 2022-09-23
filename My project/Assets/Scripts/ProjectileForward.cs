@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ProjectileForward : MonoBehaviour
 {
-   public float speed = 40;
+    public float speed = 40;
+    PlayerController playerMovement;
+    Transform playerTransform;
+    Quaternion playerRot;
+    GameObject player;
+    public GameObject projectile;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +20,19 @@ public class ProjectileForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = player.GetComponent<Transform>();
+        playerRot = Quaternion.Euler(0, playerMovement.rot.y + 90, 0);
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+		{
+            //InstantiateProjectile();
+		}
     }
+
+	private void InstantiateProjectile()
+	{
+        Object.Instantiate(projectile, player.gameObject.transform.position, playerMovement.cameraTransform.rotation);
+	}
 }

@@ -52,9 +52,9 @@ public class PlayerController : MonoBehaviour
     private const float maxPitch = 90;
 
     public GameObject projectilePrefab;
-    private float lastCallTime = 0;
     public Transform bulletSpawner;
-
+    public Vector3 rot;
+    Quaternion steakRotation;
 
     
    
@@ -64,13 +64,14 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         gunReady = true;
+        cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
     }
 
     public void Update()
     {
+        steakRotation = Quaternion.Euler(cameraTransform.localRotation.x, cameraTransform.localRotation.y + 90, cameraTransform.localRotation.z);
         // Read input values from player
         Vector2 cameraMove = lookAround.action.ReadValue<Vector2>();
-       
         Vector2 playerMove = movePlayer.action.ReadValue<Vector2>();
       
         // If player is not allowed to move, stop player input
@@ -78,12 +79,6 @@ public class PlayerController : MonoBehaviour
         {
             playerMove = Vector2.zero;
             cameraAngle = Vector2.zero;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time - lastCallTime > 0.5)
-        {
-            Instantiate (projectilePrefab, bulletSpawner.position, projectilePrefab.transform.rotation);
-            lastCallTime = Time.time;
         }
 
         // Camera move on x (horizontal movement) controls the yaw (look left or look right)
@@ -98,6 +93,7 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, cameraAngle.y, 0);
         // Only rotate camera pitch
         cameraTransform.rotation = Quaternion.Euler(cameraAngle.x, cameraAngle.y, 0);
+        rot = cameraTransform.localRotation.eulerAngles;
 
         // Check if the player is falling
         bool falling = !CheckGrounded(out RaycastHit groundHit);
@@ -259,9 +255,9 @@ public class PlayerController : MonoBehaviour
 
         if (gunReady)
         {//spawn steak, launch steak
-            GameObject steak = GameObject.Instantiate(bullet, bulletPoint.position, Quaternion.identity);
+            GameObject steak = GameObject.Instantiate(bullet, bulletPoint.position, cameraTransform.rotation);
             //apply a foce to the newly created bullet after it is born
-            //steak.GetComponent<Rigidbody>().AddForce(bulletPoint.forward * bulletForce, ForceMode.VelocityChange);
+            steak.GetComponent<Rigidbody>().AddForce(bulletPoint.forward * bulletForce, ForceMode.VelocityChange);
 
             //steak.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), 0, Random.Range(0, 360)));
             gunReady = false;
