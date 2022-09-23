@@ -37,6 +37,10 @@ public class EnemyController : MonoBehaviour
                 agent.SetDestination(spawnS.spawn.position);
             }
         }
+        else if(currentState == state.dead)
+        {
+            spawnS.StartCoroutine("deadRespawn");
+        }
 
       /*  switch (currentState)
         {
