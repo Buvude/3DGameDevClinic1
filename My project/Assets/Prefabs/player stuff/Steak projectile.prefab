@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4542083472729741363}
   - component: {fileID: 6623271376288443578}
   - component: {fileID: 4800498223607820874}
+  - component: {fileID: 2108677796857013122}
   m_Layer: 9
   m_Name: Steak projectile
   m_TagString: Untagged
@@ -146,3 +147,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.004180617, y: 0.0021408095, z: 0.00041733554}
   m_Center: {x: -0.00052790955, y: 0.0001448131, z: 0.00015170328}
+--- !u!114 &2108677796857013122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596400683365513702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb5095a2c0d8e004b8797bc4d93b39b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
