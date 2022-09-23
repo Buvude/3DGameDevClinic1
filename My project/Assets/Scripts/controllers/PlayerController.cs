@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
         return didHit;
     }
 
-    //called when the left moust button is pressed
+    //called when the left mouse button is pressed
     public void GetShootButton()
     {
 
