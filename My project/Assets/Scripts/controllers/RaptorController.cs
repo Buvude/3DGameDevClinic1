@@ -14,7 +14,8 @@ public class RaptorController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Meat") && isDead == false)
         {
-            
+
+            Destroy(other.gameObject);
             raptorAudio.clip = hitSound;
             raptorAudio.PlayOneShot(hitSound, 1.0f);
             raptorHealth--;
