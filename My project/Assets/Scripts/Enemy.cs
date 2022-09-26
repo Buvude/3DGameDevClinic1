@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [Header("Raptor Stats")]
+    public float HitsTakeable;
+
+
     void Start()
     {
         

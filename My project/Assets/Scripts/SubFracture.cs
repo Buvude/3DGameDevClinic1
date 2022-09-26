@@ -9,7 +9,7 @@ public class SubFracture : MonoBehaviour
     public Transform[] allChildren;
 
     [Header("Launch parameters")]
-    public float launchpower;
+   
     public float maxPower;
     public float minPower;
 
@@ -46,14 +46,14 @@ public class SubFracture : MonoBehaviour
         
         Vector3 LaunchAngle = transform.position - transform.parent.transform.position;
 
-        
 
+        print(LaunchAngle);
         LaunchAngle = LaunchAngle.normalized;
 
-        float power = Random.Range(0, 2.5f);
+        float power = Random.Range(0, maxPower);
 
         LaunchAngle = power * LaunchAngle;
-        transform.GetComponent<Rigidbody>().AddForce(LaunchAngle, ForceMode.VelocityChange);
+        transform.GetComponent<Rigidbody>().AddForce(LaunchAngle*power, ForceMode.VelocityChange);
         
 
     }
