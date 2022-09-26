@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6623271376288443578}
   - component: {fileID: 4800498223607820874}
   - component: {fileID: 2108677796857013122}
+  - component: {fileID: -5047297686082630490}
   m_Layer: 9
   m_Name: Steak projectile
   m_TagString: Untagged
@@ -157,5 +158,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb5095a2c0d8e004b8797bc4d93b39b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5047297686082630490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596400683365513702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288d4219577c6c84c89bb15e91eb0b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
