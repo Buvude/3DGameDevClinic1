@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 6623271376288443578}
   - component: {fileID: 4800498223607820874}
   - component: {fileID: 2108677796857013122}
+  - component: {fileID: -5047297686082630490}
   m_Layer: 9
   m_Name: Steak projectile
-  m_TagString: Untagged
+  m_TagString: Meat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 300a8591e9931cb4dbcd77bb0b7e7068, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,14 +127,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2596400683365513702}
   serializedVersion: 2
-  m_Mass: 20
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!65 &4800498223607820874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -157,5 +158,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb5095a2c0d8e004b8797bc4d93b39b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5047297686082630490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596400683365513702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288d4219577c6c84c89bb15e91eb0b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
