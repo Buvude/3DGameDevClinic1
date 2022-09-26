@@ -17,7 +17,7 @@ public class ProjectileForward : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -25,6 +25,7 @@ public class ProjectileForward : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.GetComponent<Transform>();
         playerRot = Quaternion.Euler(0, playerMovement.rot.y + 90, 0);
+       
         if(Input.GetKeyDown(KeyCode.Mouse0))
 		{
             //InstantiateProjectile();

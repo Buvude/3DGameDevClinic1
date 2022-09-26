@@ -45,16 +45,16 @@ public class PlayerController : MonoBehaviour
     internal Vector3 currentInput;
     internal bool collided;
     private CapsuleCollider capsuleCollider;
-    private float maxBounces = 3;
+    private float maxBounces = 2;
     private Vector2 cameraAngle;
     private float rotateSpeed = 45f;
     private const float minPitch = -90;
     private const float maxPitch = 90;
 
-    public GameObject projectilePrefab;
-    public Transform bulletSpawner;
     public Vector3 rot;
     Quaternion steakRotation;
+
+    private float degreeOfForgivness = .01f;
 
     
    
@@ -169,6 +169,7 @@ public class PlayerController : MonoBehaviour
             // If we are overlapping with something, just exit.
             if (hit.distance == 0)
             {
+                print("in a thing");
                 break;
             }
 
@@ -223,7 +224,7 @@ public class PlayerController : MonoBehaviour
     {
         // Get Parameters associated with the KCC
         Vector3 center = rot * capsuleCollider.center + pos;
-        float radius = capsuleCollider.radius*ScaleOfCharacter;
+        float radius = (capsuleCollider.radius*ScaleOfCharacter) - degreeOfForgivness;
         float height = capsuleCollider.height*ScaleOfCharacter;
 
         // Get top and bottom points of collider
