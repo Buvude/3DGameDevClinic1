@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public float bulletForce;
     private bool gunReady;
+    public AudioClip GunSound;
+    private AudioSource AudioPlayer;
 
     //Kinematic variables
     internal Vector3 velocity;
@@ -47,20 +49,26 @@ public class PlayerController : MonoBehaviour
     private CapsuleCollider capsuleCollider;
     private float maxBounces = 2;
     private Vector2 cameraAngle;
-    private float rotateSpeed = 45f;
+    private float rotateSpeed = 15f;
     private const float minPitch = -90;
     private const float maxPitch = 90;
 
     public Vector3 rot;
     Quaternion steakRotation;
 
-    private float degreeOfForgivness = .01f;
+    LayerMask mask;
 
-    
-   
+    //Animation
+    Animator anim;
+
+
     private void Start()
     {
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        anim = gameObject.transform.GetComponentInChildren<Animator>();
+        //snag that audio source
+        AudioPlayer = gameObject.GetComponent<AudioSource>();
 
         Cursor.lockState = CursorLockMode.Locked;
         gunReady = true;
@@ -169,7 +177,7 @@ public class PlayerController : MonoBehaviour
             // If we are overlapping with something, just exit.
             if (hit.distance == 0)
             {
-                print("in a thing");
+                
                 break;
             }
 
@@ -224,8 +232,14 @@ public class PlayerController : MonoBehaviour
     {
         // Get Parameters associated with the KCC
         Vector3 center = rot * capsuleCollider.center + pos;
-        float radius = (capsuleCollider.radius*ScaleOfCharacter) - degreeOfForgivness;
+        float radius = (capsuleCollider.radius*ScaleOfCharacter) ;
         float height = capsuleCollider.height*ScaleOfCharacter;
+
+        // default mask so that collision can hit stuff
+        mask = LayerMask.GetMask("Default");
+        
+        //adds layer 12 which is destrucable to the layermask, this contains doors
+        mask |= (1 << 12);
 
         // Get top and bottom points of collider
         Vector3 bottom = center + rot * Vector3.down * ((height) / 2 - radius);
@@ -235,7 +249,7 @@ public class PlayerController : MonoBehaviour
 
         // Check what objects this collider will hit when cast with this configuration excluding itself
         IEnumerable<RaycastHit> hits = Physics.CapsuleCastAll(
-            top, bottom, radius, dir, dist, ~0, QueryTriggerInteraction.Ignore)
+            top, bottom, radius, dir, dist, mask, QueryTriggerInteraction.Ignore)
             .Where(hit => hit.collider.transform != transform);
         bool didHit = hits.Count() > 0;
 
@@ -255,12 +269,20 @@ public class PlayerController : MonoBehaviour
     {
 
         if (gunReady)
-        {//spawn steak, launch steak
+        {
+            
+            //spawn steak, launch steak
             GameObject steak = GameObject.Instantiate(bullet, bulletPoint.position, cameraTransform.rotation);
             //apply a foce to the newly created bullet after it is born
             steak.GetComponent<Rigidbody>().AddForce(bulletPoint.forward * bulletForce, ForceMode.VelocityChange);
 
-            //steak.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), 0, Random.Range(0, 360)));
+            steak.transform.rotation = Quaternion.Euler(new Vector3(Random.Range(0, 360), 0, Random.Range(0, 360)));
+
+            //set player audio play to gun sound and play
+            anim.Play("Base Layer.GunFire",0,0);
+            AudioPlayer.clip = GunSound;
+            AudioPlayer.Play();
+
             gunReady = false;
             Invoke("gunCooldown", .25f);
         }

@@ -47,7 +47,7 @@ public class SubFracture : MonoBehaviour
         Vector3 LaunchAngle = transform.position - transform.parent.transform.position;
 
 
-        print(LaunchAngle);
+        
         LaunchAngle = LaunchAngle.normalized;
 
         float power = Random.Range(0, maxPower);
