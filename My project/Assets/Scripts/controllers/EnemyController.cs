@@ -63,6 +63,12 @@ public class EnemyController : MonoBehaviour
     {
         currentState = state.Return;
     }
+
+    public void raptorDied()
+    {
+        currentState = state.dead;
+        GameManager.RaptorKilled(1);
+    }
     
     private void OnDrawGizmos()
     {
