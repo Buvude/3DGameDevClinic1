@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void Reload()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)&& gunReady)
         {
             //lock player out of shooting
             gunReady = false;
