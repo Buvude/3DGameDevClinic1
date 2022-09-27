@@ -66,11 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.13038874
+      value: -0.09267998
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8229805
+      value: 0.82841253
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78,23 +78,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7010574
+      value: 0.7070522
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7010574
+      value: -0.7070522
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.09229592
+      value: -0.008791884
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.09229592
+      value: 0.0087919235
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -105
+      value: -91.424
       objectReference: {fileID: 0}
     - target: {fileID: 3710073333199246334, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -118,11 +118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3816358094176180216, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_AngularSpeed
-      value: 180
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3816358094176180216, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_StoppingDistance
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4050711503828797764, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_Name
@@ -135,6 +135,46 @@ PrefabInstance:
     - target: {fileID: 5417536623583270321, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.477146e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0009000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0000000015646219
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5463734710734246846, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4f8bd3fb908754da44a487cb33403d, type: 3}
@@ -210,6 +250,120 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0013036627, y: 0.0018196582, z: 0.0031765806}
   m_Center: {x: 0.00014559002, y: 0.0038790226, z: 0.0035727709}
+--- !u!82 &4339145401558387659
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051464126535260853}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0cff7eec23d4d894a8cd0ca0ff7f1fc3, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.261
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8035229563527875973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051464126535260853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61cae5f3659c774db9d876c9531f03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raptorHealth: 2
+  curHealth: 0
+  hitSound: {fileID: 8300000, guid: 62f8b2fca6336da4c8ffbd0822169d5f, type: 3}
+  deathSound: {fileID: 8300000, guid: e5cb63f30df8c3c488e7fb1f1a9659ee, type: 3}
+  raptorAudio: {fileID: 4339145401558387659}
+  isDead: 0
 --- !u!1001 &4140275082652270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,3 +449,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 7798148133358637673}
   EnemyAI: {fileID: 3254653249795718932}
+  DeathSoundObject: {fileID: 2794514049397031887, guid: 6c4c22bd33182084d8bede2e2438c86a, type: 3}

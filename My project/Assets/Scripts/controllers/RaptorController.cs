@@ -5,11 +5,16 @@ using UnityEngine;
 public class RaptorController : MonoBehaviour
 {
     public float raptorHealth;// hits it takes for the raptor to die
+    public float curHealth;
     public AudioClip hitSound; // sound played when raptor takes damage
     public AudioClip deathSound; // sound played when raptor takes damage
     public AudioSource raptorAudio; // source for sound
     public bool isDead;
-   
+
+    private void Start()
+    {
+        curHealth = raptorHealth;
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -18,18 +23,28 @@ public class RaptorController : MonoBehaviour
 
             Destroy(other.gameObject);
             raptorAudio.clip = hitSound;
-            raptorHealth--;
-            if(raptorHealth >= 1)
+            curHealth--;
+            if(curHealth >= 1)
 			{
-                raptorAudio.PlayOneShot(hitSound, 1.0f);
+                raptorAudio.Play();
             }
 
-            if (raptorHealth <= 0)
+            if (curHealth <= 0)
             {
+                gameObject.GetComponent<EnemyController>().raptorDied();
                 isDead = true;
-                raptorAudio.PlayOneShot(deathSound, 1.0f);
+                raptorAudio.clip = deathSound;
+                raptorAudio.Play();
                 transform.rotation = Quaternion.Euler(new Vector3 (transform.rotation.x, transform.rotation.y + 90, transform.rotation.z));
             }
         }
     }
+
+   public void raptorRespawn()
+    {
+        curHealth = raptorHealth;
+        isDead = false;
+    }
+
+
 }
