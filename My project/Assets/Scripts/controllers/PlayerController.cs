@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private bool gunReady;
     public AudioClip GunSound;
     private AudioSource AudioPlayer;
+    private int curAmmo, maxAmmo;
 
     //Kinematic variables
     internal Vector3 velocity;
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour
     //Animation
     Animator anim;
 
+    //corutine stuff
+    private IEnumerator coroutine;
 
     private void Start()
     {
@@ -73,10 +76,30 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         gunReady = true;
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
+
+        curAmmo = 6;
+        maxAmmo = 6;
+    }
+
+    public void Reload()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //lock player out of shooting
+            gunReady = false;
+            //invoke reset after one second 
+            
+            StartCoroutine(gunCooldown(true, .9f));
+            //play animation 
+            anim.Play("Base Layer.Reload", 0, 0);
+        }
     }
 
     public void Update()
     {
+
+        Reload();
+
         steakRotation = Quaternion.Euler(cameraTransform.localRotation.x, cameraTransform.localRotation.y + 90, cameraTransform.localRotation.z);
         // Read input values from player
         Vector2 cameraMove = lookAround.action.ReadValue<Vector2>();
@@ -268,7 +291,7 @@ public class PlayerController : MonoBehaviour
     public void GetShootButton()
     {
 
-        if (gunReady)
+        if (gunReady && curAmmo>0)
         {
             
             //spawn steak, launch steak
@@ -283,16 +306,33 @@ public class PlayerController : MonoBehaviour
             AudioPlayer.clip = GunSound;
             AudioPlayer.Play();
 
+            //take away that meat!
+            curAmmo--;
+            GameManager.reduceAmmo();
+
             gunReady = false;
-            Invoke("gunCooldown", .25f);
+            
+            
+            //Create and invoke cooldown function bool for reload and float for lockout time
+            
+            StartCoroutine(gunCooldown(false, .25f));
+
         }
 
        
     }
 
-    public void gunCooldown()
+    private IEnumerator gunCooldown(bool reload, float waitTime)
     {
+        yield return new WaitForSeconds(waitTime);
+
         gunReady = true;
+        if (reload)
+        {
+            curAmmo = maxAmmo;
+            GameManager.Reloaded();
+        }
+         
     }
 
     
