@@ -235,6 +235,9 @@ MonoBehaviour:
   bulletPoint: {fileID: 984018372735357434}
   bullet: {fileID: 2596400683365513702, guid: 842390c2afefb9745a7e22f087174778, type: 3}
   bulletForce: 10
+  projectilePrefab: {fileID: 0}
+  bulletSpawner: {fileID: 0}
+  rot: {x: 0, y: 0, z: 0}
 --- !u!114 &7736837061852381369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,3 +494,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88b0f691e0ffb504abeffb46875bd3ef, type: 3}
   m_PrefabInstance: {fileID: 6099740438305709956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6370280434118501077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88b0f691e0ffb504abeffb46875bd3ef, type: 3}
+  m_PrefabInstance: {fileID: 6099740438305709956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6129179713708343078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6370280434118501077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad533e71710aae4aaf1ffb85a6ea817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  playerTransform: {fileID: 0}
+  projectile: {fileID: 0}
