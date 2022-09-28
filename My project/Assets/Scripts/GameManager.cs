@@ -14,14 +14,16 @@ public class GameManager : MonoBehaviour
 
     //undamaged and damaged heart icons
     private static GameObject un1, un2, un3, d1, d2, d3;
-    private static GameObject AmmoText, ScoreCounter;
-    
+    private static GameObject AmmoText, ScoreCounter, redScreen, deathText;
+
+    private static bool gameOver = false;
 
     private void Awake()
     {
         AmmoText = GameObject.Find("Ammo Text");
         ScoreCounter = GameObject.Find("Score Counter");
-      
+        redScreen = GameObject.Find("Red Screen");
+
 
         // grab references to all the ui hearts
         un1 = GameObject.Find("Health 1");
@@ -130,8 +132,47 @@ public class GameManager : MonoBehaviour
     //handles game ending scenario
     private static void GameEnd()
     {
-        print("oh no the game is over");
+        //disable player controls
+        gameOver = true;
+        //fade screen in 
+
+        //fade text in Score/ message
+
+        //restart button?
+
+
+
+
         return;
+    }
+
+
+    private void Update()
+    {
+
+        if (gameOver)
+        {
+
+            GameObject.FindGameObjectWithTag("Player").SetActive(false);
+            StartCoroutine(alphaFade());
+        }
+
+    }
+
+
+   
+
+    private IEnumerator alphaFade() {
+        Image curColor = redScreen.GetComponent<Image>();
+        TextMeshProUGUI text = GameObject.Find("Death Text").GetComponent<TextMeshProUGUI>();
+        while (curColor.color.a < 255)
+        {
+            yield return new WaitForSeconds(.05f);
+            print("col");
+            curColor.color = new Color(curColor.color.r, curColor.color.g, curColor.color.b, curColor.color.a+.01f);
+            text.color = new Color(curColor.color.r, curColor.color.g, curColor.color.b, curColor.color.a + .01f);
+        }
+        //enable you died text
     }
 
 }
