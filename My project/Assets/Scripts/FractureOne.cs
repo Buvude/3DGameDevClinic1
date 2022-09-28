@@ -9,6 +9,7 @@ public class FractureOne : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.impulse.magnitude > breakForce)
         {
             fracturedObject.SetActive(true);
