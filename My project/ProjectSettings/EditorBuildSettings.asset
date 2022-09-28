@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Final_Level_Nav_Mesh.unity
+    guid: 92a4ee34acd40bc409e53f58d299758d
   m_configObjects: {}
