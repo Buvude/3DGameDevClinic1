@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
         curAmmo = 6;
         maxAmmo = 6;
-        curHealth = 3;
+        curHealth = 99999;
         Score = 0;
         //set initial state of ui
         updateUi();
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
            un2.gameObject.SetActive(false);
            d2.gameObject.SetActive(true);
         }
-        else
+        else if(curHealth<1)
         {
             un1.gameObject.SetActive(false);
             d1.gameObject.SetActive(true);
