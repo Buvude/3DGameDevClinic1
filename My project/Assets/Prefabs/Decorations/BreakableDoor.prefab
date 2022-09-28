@@ -4454,7 +4454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7949e7c12ec13cb4688f3fbfd542f066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breakForce: 0.01
+  breakForce: 0.00001
   fracturedObject: {fileID: 5343976841269003178}
 --- !u!65 &4111270055188062398
 BoxCollider:

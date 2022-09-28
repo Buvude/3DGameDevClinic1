@@ -10,11 +10,18 @@ public class FractureOne : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         
-        if (collision.impulse.magnitude > breakForce)
+        if (collision.gameObject.tag=="Meat"|| collision.gameObject.tag =="Enemy")
         {
             fracturedObject.SetActive(true);
             fracturedObject.transform.parent = null;
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        fracturedObject.SetActive(true);
+        fracturedObject.transform.parent = null;
+        Destroy(gameObject);
     }
 }
