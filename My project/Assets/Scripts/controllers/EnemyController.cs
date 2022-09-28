@@ -13,7 +13,9 @@ public class EnemyController : MonoBehaviour
     public enum state { Return, spotted, Idle, dead, Attacking };
     public state currentState = state.Return;
 
+
     private bool attackCooldown = true;
+
 
     public Animator Anim;
     // Start is called before the first frame update
@@ -34,8 +36,10 @@ public class EnemyController : MonoBehaviour
             {
                 if (distance > agent.stoppingDistance)
                 {
+
                     StopAllCoroutines();
                     attackCooldown = true;
+
                     Anim.Play("Running");
                     currentState = state.spotted;
                     agent.SetDestination(target.position);
@@ -52,10 +56,12 @@ public class EnemyController : MonoBehaviour
                     agent.SetDestination(transform.position);
 
 
+
                     if (attackCooldown) {
                         attackCooldown = false;
                         StartCoroutine(RaptorAttack());
                             }
+
                 }
                
                 
