@@ -346,6 +346,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &250738912309540353
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051464126535260853}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3df9548e98de4d44815fcb0221c812d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8035229563527875973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +384,19 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: e5cb63f30df8c3c488e7fb1f1a9659ee, type: 3}
   raptorAudio: {fileID: 4339145401558387659}
   isDead: 0
+--- !u!65 &4757197946501683525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4051464126535260853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0013036627, y: 0.0018196582, z: 0.0031765806}
+  m_Center: {x: 0.00014559002, y: 0.0038790226, z: 0.0035727709}
 --- !u!1001 &4140275082652270
 PrefabInstance:
   m_ObjectHideFlags: 0
