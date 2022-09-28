@@ -111,20 +111,22 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
 
-        Gizmos.DrawCube(transform.position, new Vector3(1, 1, 1));
+       
     }
 
     private IEnumerator RaptorAttack()
     {
         RaycastHit[] hit;
         yield return new WaitForSeconds(.8f);
-        print("wow I ran");
+       
+
         hit = Physics.BoxCastAll(transform.position, new Vector3(.3f, .3f, .3f), transform.forward);
+
         foreach(RaycastHit h in hit)
         {
             if(h.transform.gameObject.tag == "Player")
             {
-               
+                print(h.transform.gameObject.name);
                 GameManager.playerTakeDamage();
             }
         }

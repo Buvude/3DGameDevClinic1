@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         while (curColor.color.a < 255)
         {
             yield return new WaitForSeconds(.05f);
-            print("col");
+            
             curColor.color = new Color(curColor.color.r, curColor.color.g, curColor.color.b, curColor.color.a+.01f);
             text.color = new Color(curColor.color.r, curColor.color.g, curColor.color.b, curColor.color.a + .01f);
         }
