@@ -108,10 +108,10 @@ public class EnemyController : MonoBehaviour
     
     private void OnDrawGizmos()
     {
-        /*Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);*/
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
 
-       
+
     }
 
     private IEnumerator RaptorAttack()
